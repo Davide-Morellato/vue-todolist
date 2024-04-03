@@ -46,8 +46,8 @@
                                     <!-- applico il v-bind alla classe dichiarando che qualora l'elemento è stato fatto (done) allora deve barrare il testo -->
                                     <!-- applico il ciclo for per scorrere l'array "todoList" affinchè mi importi le cose da fare ({{todo.text}}) -->
                                     <li class="todo_items d-flex justify-content-between"
-                                        @click="select(todo)"
-                                        :class="todo.done === true ? 'text-decoration-line-through' : '' "
+                                        @click="select(todo, i)"
+                                        :class="todo.done === true ? 'line-through' : '' "
                                         v-for="(todo, i) in todoList"
                                     >
 
@@ -56,8 +56,8 @@
                                         <a href="#">
 
                                             <!-- applico l'evento al click sull'icona per eliminare l'elemento dalla lista, mediante la funzione removeItems(i)
-                                                 [prendo come parametro l'indice dell'array di oggetti] -->
-                                            <i class="fa-solid fa-pen-nib rounded-pill" @click="removeItems(i)"></i>
+                                                 [prendo come parametro l'indice dell'array di oggetti, richiamato dal ciclo v-for in todo_items] -->
+                                            <i class="fa-solid fa-pen-nib rounded-pill" @click.stop="removeItems(i)"></i>
                                         </a>
                                     </li>
                                 </ul>

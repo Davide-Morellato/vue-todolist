@@ -8,13 +8,13 @@ createApp({
             [
                 {
                     text: 'Abbattere l\'AT-AT',
-                    done: true
+                    done: false
 
                 },
 
                 {
                     text: 'Rubare ai libici il plutonio per la DeLorean',
-                    done: true
+                    done: false
 
                 },
 
@@ -26,7 +26,7 @@ createApp({
 
                 {
                     text: 'Piazzare i Tracobetti',
-                    done: true
+                    done: false
 
                 },
 
@@ -44,7 +44,7 @@ createApp({
 
                 {
                     text: 'Tornare al TARDIS',
-                    done: true
+                    done: false
                 },
             ]
         }
@@ -72,6 +72,11 @@ createApp({
 
         addItem(){
 
+            //creare un nuovo oggetto dove la proprietà text è uguale al valore inserito dall'utente
+            //la proprietà di default sarà false, perchè ancora non è stata fatta
+            //pushiamo questo oggetto nell'array
+            //svuotiamo l'input
+            
             if(this.newItem !== ''){
 
                 this.newItem = {
@@ -80,13 +85,14 @@ createApp({
                 };
 
                 this.todoList.push(this.newItem);
-                this.newItem = '';
 
             } else {
 
                 alert('Inserisci qualcosa da fare')
             
             }
+
+            this.newItem = ''
         }
     },
 
